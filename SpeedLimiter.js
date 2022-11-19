@@ -1,4 +1,4 @@
-class rateLimiter{
+class speedLimiter{
     constructor(){
         this.logs = {}    //记录IP上一次操作时间
         this.bannedIPs = {}    //封禁IP记录
@@ -51,4 +51,4 @@ class rateLimiter{
     }
 }
 
-module.exports = rateLimiter
+module.exports = speedLimiter
