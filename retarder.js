@@ -1,3 +1,5 @@
+const http = require('http')
+
 class retarder{
     constructor(){
         this.logs = {}    //记录IP上一次操作时间
@@ -52,3 +54,9 @@ class retarder{
 }
 
 module.exports = retarder
+
+http.createServer(function(req,res){
+    const ip = req.connection.remoteAddress
+    
+    
+})
