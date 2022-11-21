@@ -6,6 +6,12 @@ class retarder{
         this.bannedIPs = {}    //封禁IP记录
         this.interval = 0.5    //IP两次操作时间最小间隔，单位为秒，如果两次操作间隔小于该数字，则禁止操作
     }
+    setThreshold(num){    //设置一个IP地址两次操作时间最小间隔，单位为秒，如果两次操作间隔小于该数字，则禁止操作
+        if (num <= 0){
+            throw '阈值必须大于0'
+        }
+        this.interval = num
+    }
     getTime(){    //获取时间戳，单位为秒
         return Date.now() / 1000    //转换单位
     }
@@ -51,12 +57,7 @@ class retarder{
         this.log(ip)    //记录操作时间
         return false    //返回false
     }
+    
 }
 
 module.exports = retarder
-
-http.createServer(function(req,res){
-    const ip = req.connection.remoteAddress
-    
-    
-})

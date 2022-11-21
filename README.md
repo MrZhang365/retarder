@@ -15,9 +15,8 @@ var server = http.createServer(function(req,res){    //创建服务器
         res.write('你的操作过于频繁或被封禁！\n请确保你的操作的时间间隔大于0.5秒，并且此IP没有被服务器封禁！')    //提示用户
         res.end()    //结束
     }else{
-        limiter.ban(ip,10)    //封禁当前IP 10秒，解除封禁可以用unban()方法
         res.statusCode = 200    //没有操作频繁，设置状态码为200
-        res.write('您可以访问该页面！\n提示：服务器现在封禁了你，10秒内刷新你就看不到该界面了')    //提示
+        res.write('您可以访问该页面！')    //提示
         res.end()    //结束
     }
 })
@@ -29,6 +28,7 @@ server.listen(80)    //监听80端口
 limiter.ban('一个IP地址',5)    //封禁一个IP五秒，如果时间为0则为永久封禁
 limiter.unban('一个IP地址')    //解除封禁一个IP
 limiter.check('一个IP地址')    //检查目标IP地址是否被封禁或操作频繁，并记录其操作时间。如果被封禁或操作频繁则返回true，否则返回false
+limiter.setThreshold(1)    //设置一个IP地址两次操作时间最小间隔为1秒，如果两次操作间隔小于1秒，则禁止操作
 ```
 
 ## 温馨提示  
