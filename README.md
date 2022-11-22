@@ -4,7 +4,7 @@
 
 ## 用法  
 ```js
-const retarder = require('retarder')    //引入模块
+const retarder = require('./retarder')    //引入模块
 const http = require('http')
 
 var limiter = new retarder()    //创建对象
@@ -29,7 +29,15 @@ limiter.ban('一个IP地址',5)    //封禁一个IP五秒，如果时间为0则�
 limiter.unban('一个IP地址')    //解除封禁一个IP
 limiter.check('一个IP地址')    //检查目标IP地址是否被封禁或操作频繁，并记录其操作时间。如果被封禁或操作频繁则返回true，否则返回false
 limiter.setThreshold(1)    //设置一个IP地址两次操作时间最小间隔为1秒，如果两次操作间隔小于1秒，则禁止操作
+limiter.autoBan = true    //打开自动封禁功能，即检测到某IP操作频繁次数过多以后就封禁它10分钟
+limiter.autoBan = false    //关闭自动封禁功能
+limiter.resetRecords()    //重置频率限制器
 ```
 
+## 所有发布地址  
+[GitHub](https://github.com/MrZhang365/retarder)  
+[Gitee](https://gitee.com/MrZhang365/retarder)  
+[NPM发布地址](https://www.npmjs.com/package/retarder)  
+
 ## 温馨提示  
-~~这就一垃圾代码，还是不看为好~~
+~~这就一垃圾代码，还是不看为好~~  

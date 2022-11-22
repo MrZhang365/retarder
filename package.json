@@ -11,7 +11,11 @@
     "url": "git+https://github.com/MrZhang365/retarder.git"
   },
   "keywords": [
-    "limiter"
+    "limiter",
+    "limit",
+    "rate",
+    "ratelimit",
+    "limiting"
   ],
   "author": "MrZhang365",
   "license": "MIT",
