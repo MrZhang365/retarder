@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MrZhang365/retarder.git"
+    "url": "git+https://gitee.com/MrZhang365/retarder.git"
   },
   "keywords": [
     "limiter",
@@ -20,7 +20,7 @@
   "author": "MrZhang365",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MrZhang365/retarder/issues"
+    "url": "https://gitee.com/MrZhang365/retarder/issues"
   },
-  "homepage": "https://github.com/MrZhang365/retarder#readme"
+  "homepage": "https://gitee.com/MrZhang365/retarder"
 }

@@ -5,12 +5,19 @@ class retarder{
         this.interval = 0.5    //IP两次操作时间最小间隔，单位为秒，如果两次操作间隔小于该数字，则禁止操作
         this.autoBan = true    //自动封禁开关，如果某IP操作过于频繁则自动封禁10分钟
         this.warnings = {}    //警告记录
+        this.tolerance = 10    //容忍值。说明：当某IP地址连续10次操作频繁且自动封禁开关打开时则自动封禁
     }
     setThreshold(num){    //设置一个IP地址两次操作时间最小间隔，单位为秒，如果两次操作间隔小于该数字，则禁止操作
         if (num <= 0){
             throw '阈值必须大于0'
         }
         this.interval = num
+    }
+    setTolerance(num){
+        if (num <= 0){
+            throw '容忍必须大于0'
+        }
+        this.tolerance = num
     }
     resetRecords(){    //重置记录
         this.logs = {}    //清除IP操作记录
@@ -65,7 +72,7 @@ class retarder{
             this.log(ip)    //记录本次操作时间
             if (this.autoBan){    //如果自动封禁是开着的
                 this.warnings[ip] += 1
-                if (this.warnings[ip] >= 10){
+                if (this.warnings[ip] >= this.tolerance){
                     this.ban(ip,600)    //封禁10分钟
                     this.warnings[ip] = 0    //重置警告记录
                 }
